@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - '**'
+      - 'main'
 
 jobs:
 
@@ -19,4 +19,4 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SECRET }}
         port: ${{ secrets.PORT }}
-        script: whoami
+        script: cd ${{ secrets.APP_PATH }} && git checkout main && git pull
